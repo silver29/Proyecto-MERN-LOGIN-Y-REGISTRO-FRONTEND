@@ -12,8 +12,8 @@ interface AuthProviderProps{
 const AuthContext = createContext({
     isAuthenticated : false,
     getAccessToken: () => {},
-    saveUser: (userData: AuthResponse) => {},
-    //saveUser: () => {},
+    saveUser: (_userData: AuthResponse) => {},
+    //saveUser: (userData: AuthResponse) => {},
     getRefreshToken: () => {},
     getUser: () => ({} as User | undefined),
     signOut: () => {},
@@ -139,11 +139,11 @@ export function AuthProvider({children}: AuthProviderProps){
         return null;
     }
     
-    function saveUser(userData: AuthResponse) {
+    function saveUser(_userData: AuthResponse) {
         saveSessionInfo(
-            userData.body.user,
-            userData.body.accessToken,
-            userData.body.refreshToken
+            _userData.body.user,
+            _userData.body.accessToken,
+            _userData.body.refreshToken
         );
     }
 
