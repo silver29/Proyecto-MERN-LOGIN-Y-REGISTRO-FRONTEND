@@ -139,11 +139,11 @@ export function AuthProvider({children}: AuthProviderProps){
         return null;
     }
     
-    function saveUser(_userData: AuthResponse) {
+    function saveUser(userData: AuthResponse) {
         saveSessionInfo(
-            _userData.body.user,
-            _userData.body.accessToken,
-            _userData.body.refreshToken
+            userData.body.user,
+            userData.body.accessToken,
+            userData.body.refreshToken
         );
     }
 
